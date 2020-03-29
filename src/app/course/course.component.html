@@ -1,0 +1,26 @@
+<div class="col-md-6">
+  <table class="table table-striped">
+  <thead>
+  <tr>
+    <th>name</th>
+    <th>teacherId</th>
+    <th>startDateTime</th>
+    <th>endDateTime</th>
+    <th>price</th>
+    <th>status</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let course of courses">
+          <td>{{course.name}}</td>
+          <td>{{course.teacherId}}</td>
+          <td>{{course.startDateTime}}</td>
+          <td>{{course.endDateTime}}</td>
+          <td>{{course.price}}</td>
+          <td>{{course.status}}</td>
+          <!-- <td><button class="btn btn-danger" (click)="deleteEmployee(employee)"> Delete Employee</button></td> -->
+          </tr>
+  </tbody>
+    </table>
+
+  </div>
