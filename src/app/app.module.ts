@@ -10,6 +10,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CourseComponent } from './course/course.component';
+import { BasicAuthHtppInterceptorServiceService } from './service/basic-auth-htpp-interceptor-service.service';
+
 
 
 @NgModule({
@@ -26,7 +28,10 @@ import { CourseComponent } from './course/course.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: BasicAuthHtppInterceptorServiceService, multi: true
+
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

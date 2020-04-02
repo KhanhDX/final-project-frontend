@@ -3,15 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 
-export class User{
+export class User {
   constructor(
-    public status:string,
+    public status: string,
      ) {}
 }
 
-export class JwtResponse{
+export class JwtResponse {
   constructor(
-    public jwttoken:string,
+    public jwttoken: string,
      ) {}
 }
 
@@ -21,15 +21,15 @@ export class JwtResponse{
 export class AuthenticationService {
 
   constructor(
-    private httpClient:HttpClient
+    private httpClient: HttpClient
   ) { }
 
   authenticate(username, password) {
-    return this.httpClient.post<any>('http://localhost:8080/api/auth/signin',{username,password}).pipe(
+    return this.httpClient.post<any>('http://localhost:8080/api/auth/signin', { username, password}).pipe(
      map(
        userData => {
-        sessionStorage.setItem('username',username);
-        let tokenStr= 'Bearer '+userData.token;
+        sessionStorage.setItem('username', username);
+        let tokenStr = 'Bearer ' + userData.token;
         sessionStorage.setItem('token', tokenStr);
         return userData;
        }
@@ -39,11 +39,10 @@ export class AuthenticationService {
 
   isUserLoggedIn() {
     let user = sessionStorage.getItem('username')
-    //console.log(!(user === null))
-    return !(user === null)
+    return !(user === null);
   }
 
   logOut() {
-    sessionStorage.removeItem('username')
+    sessionStorage.removeItem('username');
   }
 }
