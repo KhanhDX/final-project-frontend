@@ -9,21 +9,19 @@ import { CourseService } from '../service/manage course/course.service';
 })
 export class CourseComponent implements OnInit {
 
-  courses:Course[];
+  courses: Course[];
 
   constructor(
-    private courseService:CourseService
+    private courseService: CourseService
   ) { }
 
   ngOnInit() {
     this.courseService.getCourses().subscribe(
-      response =>this.handleSuccessfulResponse(response),
+      response => this.handleSuccessfulResponse(response),
      );
   }
 
-  handleSuccessfulResponse(response)
-  {
-      this.courses=response;
+  handleSuccessfulResponse(response) {
+      this.courses = response;
   }
-
 }
